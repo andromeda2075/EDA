@@ -1,12 +1,14 @@
 #ifndef __BINARY_TREE_H__  
 #define __BINARY_TREE_H__ 
-//#include <utility>
-//#include <algorithm>
+#include <utility>
+#include <algorithm>
 #include <cassert>
 #include "types.h"
 //#include "util.h"
 using namespace std;
 
+//=================  CLASE QUE CREA EL NODO DE UN ARBOL==================================
+//======================================================================
 template <typename T>
 class NodeBinaryTree
 {
@@ -34,6 +36,9 @@ private:
     Node    *&getChildRef(size_t branch){ return m_pChild[branch];  }
     Node    * getParent() { return m_pParent;   }
 };
+//===========================================================================
+// CREACIÓN DE ITERADORES
+//===========================================================================
 
 #define _DEF(_Container, _iter)  \
 public: \
@@ -56,6 +61,9 @@ public:
                                   }
 };
 
+//============ CREACIÓN DE  TRAITS  ===============================
+//================================================================
+
 template <typename _T>
 struct BinaryTreeAscTraits
 {
@@ -71,7 +79,9 @@ struct BinaryTreeDescTraits
     using  Node      = NodeBinaryTree<T>;
     using  CompareFn = greater<T>;
 };
-
+//======================================================================
+//  CLASE BINARY TREE
+//======================================================================
 template <typename Traits>
 class BinaryTree
 {
